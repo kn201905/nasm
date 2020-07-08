@@ -3,6 +3,7 @@ default rel		; デフォルトで RIP相対アドレシングを利用する
 
 ; 他のファイルからコールできるようにするための宣言
 global  ASM_test_entry
+global	ASM_test
 
 ; ========================================================
 ; 未使用のデータセクション
@@ -18,6 +19,8 @@ section .text align=4096
 ; https://www.mztn.org/lxasm64/amd02.html
 
 ; Linux と Win との差異を吸収する
+; Linux からコールするときは、ASM_test_entry を利用する
+; Win からコールするときは、ASM_test を利用する
 ASM_test_entry:
 	mov		rcx, rdi
 	mov		rdx, rsi
