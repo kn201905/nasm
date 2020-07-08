@@ -26,4 +26,8 @@ caller ができたことを確認。
 # nasm -f elf64 test.asm -l test.lst
 
 test.o が生成されると同時に、マシンコードのリストが test.lst に書き込まれる。
+
+# nasm -f elf64 -O0 test.asm -l test.lst
+
+最適化がなされず、素の状態のマシンコードのリストを見ることができる。
 ```
