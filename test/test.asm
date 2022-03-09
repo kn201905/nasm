@@ -18,6 +18,8 @@ section .text align=4096
 ; http://herumi.in.coocan.jp/prog/x64.html
 ; https://www.mztn.org/lxasm64/amd02.html
 
+; 引数は４つまでを想定している
+
 ; Linux と Win との差異を吸収する
 ; Linux からコールするときは、ASM_test_entry を利用する
 ; Win からコールするときは、ASM_test を利用する
@@ -26,8 +28,8 @@ ASM_test_entry:
 	push		rdx
 	mov		rcx, rdi
 	mov		rdx, rsi
-	pop		r9
 	pop		r8
+	pop		r9
 
 	call	ASM_test
 	ret
