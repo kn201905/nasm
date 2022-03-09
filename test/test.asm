@@ -22,10 +22,12 @@ section .text align=4096
 ; Linux からコールするときは、ASM_test_entry を利用する
 ; Win からコールするときは、ASM_test を利用する
 ASM_test_entry:
+	push		rcx
+	push		rdx
 	mov		rcx, rdi
 	mov		rdx, rsi
-	mov		r8, rdx
-	mov		r9, rcx
+	pop		r9
+	pop		r8
 
 	call	ASM_test
 	ret
